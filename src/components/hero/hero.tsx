@@ -1,73 +1,152 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
     <section className="relative min-h-[100svh] overflow-hidden bg-[var(--color-obsidian)]">
-      {/* Background atmosphere */}
+      {/* Soft atmosphere */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-40"
+        className="pointer-events-none absolute inset-0"
         aria-hidden="true"
       >
-        <div className="absolute left-1/2 top-1/3 h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-[var(--color-accent)]/10 blur-[160px]" />
+        <div className="absolute left-[24%] top-[18%] h-[34rem] w-[34rem] rounded-full bg-[#6b292d]/[0.06] blur-[150px]" />
+        <div className="absolute right-[8%] top-[12%] h-[28rem] w-[28rem] rounded-full bg-white/[0.025] blur-[130px]" />
+
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(11,11,11,0.18)_50%,rgba(11,11,11,0.88)_100%)]" />
       </div>
 
-      <div className="page-shell relative min-h-[100svh] pt-24">
-        {/* Small intro text */}
-        <p className="absolute left-[var(--page-padding)] top-32 z-30 text-[10px] uppercase tracking-[0.32em] text-[var(--color-stone)] md:top-36">
-          Computer Science Student · Software Developer
-        </p>
+      <div className="page-shell relative min-h-[100svh] pt-24 md:pt-28">
+        {/* LEFT INTRO */}
+        <div className="absolute left-[var(--page-padding)] top-[17%] z-30">
+          <p className="mb-4 text-[10px] uppercase tracking-[0.42em] text-[var(--color-stone)]">
+            Hello, I&apos;m
+          </p>
+        </div>
 
-        {/* First name behind portrait */}
+        {/* ZOHRA — left side */}
         <div
-          className="pointer-events-none absolute inset-x-0 top-[22%] z-10"
+          className="pointer-events-none absolute left-[var(--page-padding)] top-[21%] z-10"
           aria-hidden="true"
         >
-          <p className="display-type whitespace-nowrap text-center text-[clamp(6rem,16vw,15rem)] leading-[0.72] tracking-[-0.055em] text-[var(--color-ivory)]">
+          <p className="display-type text-[clamp(5rem,10vw,11rem)] leading-[0.78] tracking-[-0.055em] text-[var(--color-ivory)]">
             ZOHRA
           </p>
         </div>
 
-        {/* Portrait */}
-        <div className="absolute bottom-0 left-1/2 z-20 h-[82vh] w-[min(58vw,760px)] -translate-x-1/2">
-          <Image
-            src="/images/hero/zohra-hero.png"
-            alt="Zohra Haidary"
-            fill
-            priority
-            className="object-contain object-bottom"
-            sizes="(max-width: 768px) 90vw, 58vw"
-          />
-        </div>
-
-        {/* Surname in front */}
+        {/* HAIDARY — right side */}
         <div
-          className="pointer-events-none absolute inset-x-0 top-[49%] z-30"
+          className="pointer-events-none absolute right-[var(--page-padding)] top-[24%] z-10"
           aria-hidden="true"
         >
-          <p className="display-type whitespace-nowrap text-center text-[clamp(5.5rem,14vw,13rem)] leading-[0.72] tracking-[-0.055em] text-[var(--color-ivory)]">
+          <p className="display-type text-right text-[clamp(4.8rem,9vw,10.5rem)] leading-[0.78] tracking-[-0.055em] text-[var(--color-ivory)]">
             HAIDARY
           </p>
         </div>
 
-        {/* Statement */}
-        <div className="absolute bottom-14 left-[var(--page-padding)] z-40 max-w-[27rem] md:bottom-16">
-          <p className="display-type text-[clamp(1.8rem,3vw,3.1rem)] leading-[1.02] tracking-[-0.025em]">
-            Building thoughtful digital products with purpose.
-          </p>
+        {/* PORTRAIT */}
+        <div className="absolute bottom-0 left-1/2 z-20 h-[82vh] w-[min(38vw,560px)] -translate-x-1/2">
+          <Image
+            src= "/images/hero/zohra-hero.png"
+            alt="Zohra Haidary"
+            fill
+            priority
+            className="object-contain object-bottom"
+            sizes="(max-width: 768px) 88vw, 38vw"
+          />
 
-          <p className="mt-5 text-xs uppercase tracking-[0.22em] text-[var(--color-stone)]">
-            Waterloo, Canada
+          {/* Helps blend the current photo background */}
+          <div className="pointer-events-none absolute inset-x-[-8%] bottom-0 top-[8%] bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(11,11,11,0.18)_62%,rgba(11,11,11,0.92)_100%)]" />
+        </div>
+
+        {/* ROLE */}
+        <div className="absolute left-[var(--page-padding)] top-[45%] z-30">
+          <p className="text-[10px] uppercase tracking-[0.34em] text-[var(--color-stone)]">
+            Computer Science Student · Software Developer
           </p>
         </div>
 
-        {/* Current status */}
-        <div className="absolute bottom-14 right-[var(--page-padding)] z-40 hidden text-right md:block">
-          <p className="mb-2 text-[9px] uppercase tracking-[0.3em] text-[var(--color-stone-dim)]">
-            Currently
+        {/* LEFT STATEMENT */}
+        <div className="absolute bottom-[13%] left-[var(--page-padding)] z-30 max-w-[29rem]">
+          <p className="display-type text-[clamp(2rem,3vw,3.4rem)] leading-[1.01] tracking-[-0.03em]">
+            Building thoughtful digital
+            <br />
+            products with purpose.
           </p>
 
-          <p className="text-sm text-[var(--color-ivory)]">
-            Building Trackr
+          <div className="mt-8 flex items-center gap-3">
+            <span
+              className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]"
+              aria-hidden="true"
+            />
+
+            <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--color-stone)]">
+              Waterloo, Canada
+            </p>
+          </div>
+        </div>
+
+        {/* RIGHT MICRO COPY */}
+        <div className="absolute right-[var(--page-padding)] top-[15%] z-30 hidden lg:block">
+          <div className="flex items-center gap-4">
+            <div>
+              <p className="text-[9px] uppercase leading-[1.7] tracking-[0.35em] text-[var(--color-stone)]">
+                Ideas
+                <br />
+                Code
+                <br />
+                Impact
+              </p>
+            </div>
+
+            <span className="h-px w-12 bg-[var(--color-carbon)]" />
+          </div>
+        </div>
+
+        {/* FEATURED PROJECT */}
+        <div className="absolute bottom-[11%] right-[var(--page-padding)] z-30 hidden w-[min(29vw,420px)] lg:block">
+          <div className="border-t border-[var(--color-carbon)] pt-4">
+            <div className="mb-5 flex items-center justify-between">
+              <p className="text-[9px] uppercase tracking-[0.3em] text-[var(--color-stone)]">
+                Featured project
+              </p>
+
+              <p className="text-[9px] tracking-[0.2em] text-[var(--color-stone-dim)]">
+                01 / 03
+              </p>
+            </div>
+
+            <div className="flex items-end justify-between gap-6">
+              <div>
+                <h2 className="display-type text-3xl tracking-[-0.025em]">
+                  Trackr
+                </h2>
+
+                <p className="mt-2 max-w-[16rem] text-sm leading-6 text-[var(--color-stone)]">
+                  AI-powered academic management built around courses,
+                  assignments, grades and intelligent syllabus extraction.
+                </p>
+
+                <Link
+                  href="/projects/trackr"
+                  className="mt-5 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] transition-opacity duration-200 hover:opacity-60"
+                >
+                  View project
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+
+              <div
+                className="hidden h-24 w-20 border-l border-[var(--color-carbon)] xl:block"
+                aria-hidden="true"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* SMALL SCROLL LABEL */}
+        <div className="absolute bottom-6 left-1/2 z-30 hidden -translate-x-1/2 md:block">
+          <p className="text-[8px] uppercase tracking-[0.34em] text-[var(--color-stone-dim)]">
+            Scroll to explore
           </p>
         </div>
       </div>
