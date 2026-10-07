@@ -3,151 +3,282 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[100svh] overflow-hidden bg-[var(--color-obsidian)]">
-      {/* Soft atmosphere */}
+    <section
+      id="home"
+      aria-labelledby="hero-title"
+      className="relative isolate min-h-[100svh] overflow-hidden bg-[var(--color-obsidian)]"
+    >
+      {/* Accessible heading */}
+      <h1 id="hero-title" className="sr-only">
+        Zohra Haidary — Computer Science Student and Software Developer
+      </h1>
+
+      {/* =====================================================
+          BACKGROUND ATMOSPHERE
+      ====================================================== */}
       <div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden="true"
       >
-        <div className="absolute left-[24%] top-[18%] h-[34rem] w-[34rem] rounded-full bg-[#6b292d]/[0.06] blur-[150px]" />
-        <div className="absolute right-[8%] top-[12%] h-[28rem] w-[28rem] rounded-full bg-white/[0.025] blur-[130px]" />
+        <div className="absolute left-1/2 top-[18%] h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-[#6b292d]/[0.04] blur-[160px]" />
 
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(11,11,11,0.18)_50%,rgba(11,11,11,0.88)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(11,11,11,0.10)_48%,rgba(11,11,11,0.9)_100%)]" />
       </div>
 
-      <div className="page-shell relative min-h-[100svh] pt-24 md:pt-28">
-        {/* LEFT INTRO */}
-        <div className="absolute left-[var(--page-padding)] top-[17%] z-30">
-          <p className="mb-4 text-[10px] uppercase tracking-[0.42em] text-[var(--color-stone)]">
-            Hello, I&apos;m
-          </p>
-        </div>
+      <div className="page-shell relative min-h-[100svh]">
+        {/* =====================================================
+            MOBILE + TABLET
+            Below xl
+        ====================================================== */}
+        <div className="relative flex min-h-[100svh] flex-col pt-28 xl:hidden">
+          {/* INTRO */}
+          <div className="relative z-30">
+            <p className="text-[9px] uppercase tracking-[0.4em] text-[var(--color-stone)] sm:text-[10px]">
+              Hello, I&apos;m
+            </p>
 
-        {/* ZOHRA — left side */}
-        <div
-          className="pointer-events-none absolute left-[var(--page-padding)] top-[21%] z-10"
-          aria-hidden="true"
-        >
-          <p className="display-type text-[clamp(5rem,10vw,11rem)] leading-[0.78] tracking-[-0.055em] text-[var(--color-ivory)]">
-            ZOHRA
-          </p>
-        </div>
+            <p className="mt-7 text-[8px] uppercase leading-5 tracking-[0.3em] text-[var(--color-stone)] sm:text-[9px]">
+              Computer Science Student
+              <br />
+              Software Developer
+            </p>
 
-        {/* HAIDARY — right side */}
-        <div
-          className="pointer-events-none absolute right-[var(--page-padding)] top-[24%] z-10"
-          aria-hidden="true"
-        >
-          <p className="display-type text-right text-[clamp(4.8rem,9vw,10.5rem)] leading-[0.78] tracking-[-0.055em] text-[var(--color-ivory)]">
-            HAIDARY
-          </p>
-        </div>
+            {/* MOBILE NAME */}
+            <div
+              className="display-type mt-3 uppercase leading-[0.8] tracking-[-0.055em] text-[var(--color-ivory)]"
+              aria-hidden="true"
+            >
+              <p className="text-[clamp(4.2rem,14vw,7rem)]">
+                Zohra
+              </p>
 
-        {/* PORTRAIT */}
-        <div className="absolute bottom-0 left-1/2 z-20 h-[82vh] w-[min(38vw,560px)] -translate-x-1/2">
-          <Image
-            src= "/images/hero/zohra-hero.png"
-            alt="Zohra Haidary"
-            fill
-            priority
-            className="object-contain object-bottom"
-            sizes="(max-width: 768px) 88vw, 38vw"
-          />
+              <p className="mt-2 text-[clamp(4.2rem,14vw,7rem)]">
+                Haidary
+              </p>
+            </div>
+          </div>
 
-          {/* Helps blend the current photo background */}
-          <div className="pointer-events-none absolute inset-x-[-8%] bottom-0 top-[8%] bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(11,11,11,0.18)_62%,rgba(11,11,11,0.92)_100%)]" />
-        </div>
+          {/* MOBILE / TABLET PORTRAIT */}
+          <div className="absolute inset-x-0 bottom-0 top-[30%] z-10">
+            <Image
+              src="/images/hero/zohra-hero.png"
+              alt="Portrait of Zohra Haidary"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-[center_28%] brightness-[0.74] saturate-[0.76]"
+            />
 
-        {/* ROLE */}
-        <div className="absolute left-[var(--page-padding)] top-[45%] z-30">
-          <p className="text-[10px] uppercase tracking-[0.34em] text-[var(--color-stone)]">
-            Computer Science Student · Software Developer
-          </p>
-        </div>
-
-        {/* LEFT STATEMENT */}
-        <div className="absolute bottom-[13%] left-[var(--page-padding)] z-30 max-w-[29rem]">
-          <p className="display-type text-[clamp(2rem,3vw,3.4rem)] leading-[1.01] tracking-[-0.03em]">
-            Building thoughtful digital
-            <br />
-            products with purpose.
-          </p>
-
-          <div className="mt-8 flex items-center gap-3">
-            <span
-              className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]"
+            {/* top fade */}
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 h-[30%] bg-gradient-to-b from-[#0b0b0b] via-[#0b0b0b]/85 to-transparent"
               aria-hidden="true"
             />
 
-            <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--color-stone)]">
-              Waterloo, Canada
+            {/* bottom fade */}
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-[#0b0b0b] via-[#0b0b0b]/90 to-transparent"
+              aria-hidden="true"
+            />
+
+            {/* side vignette */}
+            <div
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_28%,rgba(11,11,11,0.12)_55%,#0b0b0b_100%)]"
+              aria-hidden="true"
+            />
+          </div>
+
+          {/* MOBILE CONTENT */}
+          <div className="relative z-30 mt-auto max-w-[24rem] pb-12 sm:max-w-[28rem]">
+            <p className="display-type text-[clamp(2rem,6vw,2.8rem)] leading-[1.02] tracking-[-0.03em] text-[var(--color-ivory)]">
+              Building thoughtful digital
+              <br />
+              products with purpose.
+            </p>
+
+            {/* LOCATION */}
+            <div className="mt-7 flex items-center gap-3">
+              <span
+                className="h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
+                aria-hidden="true"
+              />
+
+              <p className="text-[10px] uppercase tracking-[0.23em] text-[var(--color-stone)]">
+                Waterloo, Canada
+              </p>
+            </div>
+
+            {/* ACTIONS */}
+            <div className="mt-8 flex flex-wrap items-center gap-6">
+              <Link
+                href="#projects"
+                className="group inline-flex items-center gap-3 border border-[var(--color-carbon)] px-5 py-3 text-[10px] uppercase tracking-[0.22em] text-[var(--color-ivory)] transition-colors duration-300 hover:border-[var(--color-stone)]"
+              >
+                Explore projects
+
+                <span
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
+              </Link>
+
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[var(--color-stone)] transition-colors duration-200 hover:text-[var(--color-ivory)]"
+              >
+                Resume
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* =====================================================
+            DESKTOP / LARGE LAPTOP
+            xl and above
+        ====================================================== */}
+        <div className="relative hidden min-h-[100svh] xl:block">
+          {/* HELLO */}
+          <div className="absolute left-0 top-[16%] z-30">
+            <p className="text-[10px] uppercase tracking-[0.42em] text-[var(--color-stone)]">
+              Hello, I&apos;m
             </p>
           </div>
-        </div>
 
-        {/* RIGHT MICRO COPY */}
-        <div className="absolute right-[var(--page-padding)] top-[15%] z-30 hidden lg:block">
-          <div className="flex items-center gap-4">
-            <div>
-              <p className="text-[9px] uppercase leading-[1.7] tracking-[0.35em] text-[var(--color-stone)]">
-                Ideas
-                <br />
-                Code
-                <br />
-                Impact
-              </p>
-            </div>
+          {/* =================================================
+              DESKTOP NAME
 
-            <span className="h-px w-12 bg-[var(--color-carbon)]" />
+              Portrait = z-20
+              Name = z-10
+
+              42vw middle column keeps HAIDARY clear
+              of the portrait.
+          ================================================== */}
+          <div
+            className="pointer-events-none absolute inset-x-0 top-[21%] z-10 grid grid-cols-[1fr_44vw_1fr] items-start"
+            aria-hidden="true"
+          >
+            <p className="display-type whitespace-nowrap text-[clamp(5.5rem,8.4vw,10rem)] uppercase leading-[0.76] tracking-[-0.06em] text-[var(--color-ivory)]">
+              Zohra
+            </p>
+
+            <div />
+
+            <p className="display-type whitespace-nowrap text-right text-[clamp(5.5rem,8.4vw,10rem)] uppercase leading-[0.76] tracking-[-0.06em] text-[var(--color-ivory)]">
+              Haidary
+            </p>
           </div>
-        </div>
 
-        {/* FEATURED PROJECT */}
-        <div className="absolute bottom-[11%] right-[var(--page-padding)] z-30 hidden w-[min(29vw,420px)] lg:block">
-          <div className="border-t border-[var(--color-carbon)] pt-4">
-            <div className="mb-5 flex items-center justify-between">
-              <p className="text-[9px] uppercase tracking-[0.3em] text-[var(--color-stone)]">
-                Featured project
-              </p>
+          {/* =================================================
+              DESKTOP PORTRAIT
+          ================================================== */}
+          <div className="absolute bottom-0 left-1/2 z-20 h-[88svh] w-[min(44vw,680px)] -translate-x-1/2">
+            <Image
+              src="/images/hero/zohra-hero.png"
+              alt="Portrait of Zohra Haidary"
+              fill
+              priority
+              sizes="44vw"
+              className="object-cover object-[center_28%] brightness-[0.76] saturate-[0.78]"
+            />
 
-              <p className="text-[9px] tracking-[0.2em] text-[var(--color-stone-dim)]">
-                01 / 03
+            {/* SIDE BLEND */}
+            <div
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#0b0b0b_0%,rgba(11,11,11,0.82)_8%,transparent_28%,transparent_72%,rgba(11,11,11,0.82)_92%,#0b0b0b_100%)]"
+              aria-hidden="true"
+            />
+
+            {/* TOP BLEND */}
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 h-[22%] bg-gradient-to-b from-[#0b0b0b] via-[#0b0b0b]/50 to-transparent"
+              aria-hidden="true"
+            />
+
+            {/* BOTTOM BLEND */}
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-[#0b0b0b] via-[#0b0b0b]/90 to-transparent"
+              aria-hidden="true"
+            />
+
+            {/* FINAL VIGNETTE */}
+            <div
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(11,11,11,0.08)_60%,rgba(11,11,11,0.5)_82%,#0b0b0b_100%)]"
+              aria-hidden="true"
+            />
+          </div>
+
+          {/* ROLE */}
+          <div className="absolute left-0 top-[39%] z-30">
+            <p className="text-[10px] uppercase tracking-[0.34em] text-[var(--color-stone)]">
+              Computer Science Student · Software Developer
+            </p>
+          </div>
+
+          {/* MAIN STATEMENT */}
+          <div className="absolute left-0 top-[50%] z-30 max-w-[30rem]">
+            <p className="display-type text-[clamp(2rem,2.6vw,3rem)] leading-[1.02] tracking-[-0.03em] text-[var(--color-ivory)]">
+              Building thoughtful digital
+              <br />
+              products with purpose.
+            </p>
+
+            {/* LOCATION */}
+            <div className="mt-8 flex items-center gap-3">
+              <span
+                className="h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
+                aria-hidden="true"
+              />
+
+              <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--color-stone)]">
+                Waterloo, Canada
               </p>
             </div>
 
-            <div className="flex items-end justify-between gap-6">
-              <div>
-                <h2 className="display-type text-3xl tracking-[-0.025em]">
-                  Trackr
-                </h2>
+            {/* ACTIONS */}
+            <div className="mt-10 flex items-center gap-8">
+              <Link
+                href="#projects"
+                className="group inline-flex items-center gap-4 border border-[var(--color-carbon)] px-6 py-4 text-[10px] uppercase tracking-[0.24em] text-[var(--color-ivory)] transition-colors duration-300 hover:border-[var(--color-stone)]"
+              >
+                Explore projects
 
-                <p className="mt-2 max-w-[16rem] text-sm leading-6 text-[var(--color-stone)]">
-                  AI-powered academic management built around courses,
-                  assignments, grades and intelligent syllabus extraction.
-                </p>
-
-                <Link
-                  href="/projects/trackr"
-                  className="mt-5 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] transition-opacity duration-200 hover:opacity-60"
+                <span
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
                 >
-                  View project
-                  <span aria-hidden="true">→</span>
-                </Link>
-              </div>
+                  →
+                </span>
+              </Link>
 
-              <div
-                className="hidden h-24 w-20 border-l border-[var(--color-carbon)] xl:block"
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] text-[var(--color-ivory)] transition-opacity duration-200 hover:opacity-60"
+              >
+                Resume
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+
+          {/* SCROLL INDICATOR */}
+          <div className="absolute bottom-7 left-1/2 z-30 -translate-x-1/2">
+            <div className="flex flex-col items-center gap-3">
+              <p className="text-[8px] uppercase tracking-[0.34em] text-[var(--color-stone-dim)]">
+                Scroll to explore
+              </p>
+
+              <span
+                className="h-8 w-px bg-[var(--color-carbon)]"
                 aria-hidden="true"
               />
             </div>
           </div>
-        </div>
-
-        {/* SMALL SCROLL LABEL */}
-        <div className="absolute bottom-6 left-1/2 z-30 hidden -translate-x-1/2 md:block">
-          <p className="text-[8px] uppercase tracking-[0.34em] text-[var(--color-stone-dim)]">
-            Scroll to explore
-          </p>
         </div>
       </div>
     </section>

@@ -23,11 +23,18 @@
   --duration-slow: 800ms;
 }
 
-* {
+/* -----------------------------
+   Base reset
+------------------------------ */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
+  scroll-behavior: smooth;
   background: var(--color-obsidian);
   color-scheme: dark;
 }
@@ -35,6 +42,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  overflow-x: hidden;
 
   background: var(--color-obsidian);
   color: var(--color-ivory);
@@ -42,13 +50,31 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* -----------------------------
+   Selection
+------------------------------ */
 
 ::selection {
   background: var(--color-accent);
   color: var(--color-ivory);
 }
+
+/* -----------------------------
+   Links / buttons
+------------------------------ */
 
 a {
   color: inherit;
@@ -60,9 +86,25 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+button {
+  font: inherit;
+}
+
+/* -----------------------------
+   Typography
+------------------------------ */
+
 .display-type {
   font-family: var(--font-display), Georgia, serif;
 }
+
+.muted {
+  color: var(--color-stone);
+}
+
+/* -----------------------------
+   Main layout container
+------------------------------ */
 
 .page-shell {
   width: min(100%, var(--content-max-width));
@@ -70,16 +112,116 @@ a {
   padding-inline: var(--page-padding);
 }
 
-.muted {
-  color: var(--color-stone);
+/* -----------------------------
+   Section spacing
+------------------------------ */
+
+.section-shell {
+  width: min(100%, var(--content-max-width));
+  margin-inline: auto;
+  padding-inline: var(--page-padding);
+  padding-block: clamp(5rem, 10vw, 10rem);
 }
+
+/* -----------------------------
+   Anchor scrolling
+   Prevents fixed navbar from
+   covering section headings
+------------------------------ */
+
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+/* -----------------------------
+   Focus accessibility
+------------------------------ */
 
 :focus-visible {
   outline: 1px solid var(--color-ivory);
   outline-offset: 5px;
 }
 
+/* -----------------------------
+   Coursework marquee
+------------------------------ */
+
+@keyframes coursework-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.coursework-marquee-track {
+  display: flex;
+  width: max-content;
+
+  animation: coursework-marquee 70s linear infinite;
+
+  will-change: transform;
+}
+
+/*
+  Pause the moving cards while the
+  user's cursor is anywhere over
+  the coursework marquee area.
+*/
+.group\/marquee:hover .coursework-marquee-track {
+  animation-play-state: paused;
+}
+
+/* -----------------------------
+   Responsive adjustments
+------------------------------ */
+
+@media (max-width: 1024px) {
+  :root {
+    --page-padding: clamp(1.25rem, 3.5vw, 2.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-padding: clamp(1.25rem, 5vw, 2rem);
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  /*
+    Slightly faster on smaller screens
+    so users do not have to wait too
+    long to see the full coursework list.
+  */
+  .coursework-marquee-track {
+    animation-duration: 55s;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --page-padding: 1.25rem;
+  }
+
+  .coursework-marquee-track {
+    animation-duration: 48s;
+  }
+}
+
+/* -----------------------------
+   Reduced motion
+------------------------------ */
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
@@ -87,5 +229,10 @@ a {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+
+  .coursework-marquee-track {
+    animation: none !important;
+    transform: none !important;
   }
 }
