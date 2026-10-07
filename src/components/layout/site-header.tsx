@@ -1,23 +1,25 @@
 import Link from "next/link";
 
 const navigation = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Experience", href: "/experience" },
+  { label: "Projects", href: "/projects" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      {/* subtle readable background on scroll */}
+      {/* subtle readable background */}
       <div className="absolute inset-0 -z-10 border-b border-white/[0.04] bg-[#0b0b0b]/70 backdrop-blur-xl" />
 
       <div className="page-shell flex h-20 items-center justify-between">
-        {/* LEFT BRAND */}
+        {/* =====================================================
+            LEFT BRAND
+        ====================================================== */}
         <div className="flex items-center gap-5">
           <Link
-            href="#home"
+            href="/"
             className="display-type text-2xl tracking-[-0.04em] transition-opacity duration-200 hover:opacity-60"
             aria-label="Zohra Haidary — Home"
           >
@@ -34,7 +36,9 @@ export default function SiteHeader() {
           </p>
         </div>
 
-        {/* CENTER NAVIGATION */}
+        {/* =====================================================
+            CENTER NAVIGATION
+        ====================================================== */}
         <nav
           className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 xl:flex"
           aria-label="Main navigation"
@@ -47,12 +51,17 @@ export default function SiteHeader() {
             >
               {item.label}
 
-              <span className="absolute -bottom-2 left-0 h-px w-0 bg-[var(--color-ivory)] transition-[width] duration-300 group-hover:w-full" />
+              <span
+                className="absolute -bottom-2 left-0 h-px w-0 bg-[var(--color-ivory)] transition-[width] duration-300 group-hover:w-full"
+                aria-hidden="true"
+              />
             </Link>
           ))}
         </nav>
 
-        {/* RIGHT ACTIONS */}
+        {/* =====================================================
+            RIGHT ACTIONS
+        ====================================================== */}
         <div className="flex items-center gap-4 sm:gap-6">
           <a
             href="/resume.pdf"
@@ -64,8 +73,8 @@ export default function SiteHeader() {
           </a>
 
           <Link
-            href="#contact"
-            className="group flex items-center gap-3 border border-[var(--color-carbon)] px-4 py-3 text-[10px] tracking-[0.05em] transition-colors duration-300 hover:border-[var(--color-stone)] sm:gap-4 sm:px-5"
+            href="/contact"
+            className="group flex items-center gap-3 border border-[var(--color-carbon)] px-4 py-3 text-[10px] tracking-[0.05em] text-[var(--color-ivory)] transition-colors duration-300 hover:border-[var(--color-stone)] sm:gap-4 sm:px-5"
           >
             Let&apos;s Connect
 

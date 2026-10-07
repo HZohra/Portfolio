@@ -2,14 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { experience } from "@/data/experience";
-import { projects } from "@/data/projects";
-import ProjectCard from "@/components/projects/project-card";
 
 export default function ExperienceSection() {
-  const sectionRef = useRef<HTMLElement | null>(null);
   const timelineRef = useRef<HTMLDivElement | null>(null);
   const nodeRefs = useRef<(HTMLSpanElement | null)[]>([]);
-
   const [activeDotTop, setActiveDotTop] = useState(0);
 
   useEffect(() => {
@@ -32,6 +28,7 @@ export default function ExperienceSection() {
       });
 
       const activeNode = nodeRefs.current[activeIndex];
+
       if (!activeNode || !timelineRef.current) return;
 
       const timelineRect = timelineRef.current.getBoundingClientRect();
@@ -44,7 +41,10 @@ export default function ExperienceSection() {
 
     updateActiveDot();
 
-    window.addEventListener("scroll", updateActiveDot, { passive: true });
+    window.addEventListener("scroll", updateActiveDot, {
+      passive: true,
+    });
+
     window.addEventListener("resize", updateActiveDot);
 
     return () => {
@@ -56,8 +56,7 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      ref={sectionRef}
-      className="section-shell border-t border-white/[0.05]"
+      className="section-shell border-t border-white/[0.05] pt-32"
     >
       {/* SECTION LABEL */}
       <div className="mb-16 flex items-center gap-4">
@@ -71,136 +70,102 @@ export default function ExperienceSection() {
         />
 
         <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-stone)]">
-          Experience + Selected Work
+          Experience
         </p>
       </div>
 
-      {/* MAIN LAYOUT */}
-      <div className="grid gap-20 xl:grid-cols-[0.95fr_1.05fr] xl:gap-24">
-        {/* =====================================================
-            EXPERIENCE
-        ====================================================== */}
+      {/* INTRO */}
+      <div className="mb-14 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="mb-8 text-[9px] uppercase tracking-[0.3em] text-[var(--color-stone-dim)]">
-            Experience
+          <p className="text-[9px] uppercase tracking-[0.3em] text-[var(--color-stone-dim)]">
+            Work + Leadership
           </p>
 
-          <h2 className="display-type max-w-[30rem] text-[clamp(2.8rem,4.5vw,5rem)] leading-[0.97] tracking-[-0.04em] text-[var(--color-ivory)]">
+          <h1 className="display-type mt-4 max-w-[42rem] text-[clamp(3.5rem,6vw,6.5rem)] leading-[0.93] tracking-[-0.045em] text-[var(--color-ivory)]">
             Learning, leading
             <br />
             and building.
-          </h2>
-
-          {/* TIMELINE */}
-          <div ref={timelineRef} className="relative mt-14">
-            {/* MAIN VERTICAL LINE */}
-            <div
-              className="absolute left-[6px] top-2 bottom-2 w-px -translate-x-1/2 bg-[var(--color-carbon)]"
-              aria-hidden="true"
-            />
-
-            {/* ACTIVE MOVING DOT — snaps INTO the empty circles */}
-            <div
-              className="pointer-events-none absolute left-0 z-20 h-3 w-3 rounded-full border border-[var(--color-ivory)] bg-[var(--color-obsidian)] transition-transform duration-300 ease-out"
-              style={{
-                transform: `translateY(${activeDotTop}px)`,
-              }}
-              aria-hidden="true"
-            >
-              <span className="absolute inset-[3px] rounded-full bg-[var(--color-ivory)]" />
-            </div>
-
-            {/* ITEMS */}
-            <div className="space-y-12">
-              {experience.map((item, index) => (
-                <article key={item.id} className="relative pl-10">
-                  {/* EMPTY CIRCLE NODE */}
-                  <span
-                    ref={(el) => {
-                      nodeRefs.current[index] = el;
-                    }}
-                    className="absolute left-0 top-2 z-10 h-3 w-3 rounded-full border border-[var(--color-carbon)] bg-[var(--color-obsidian)]"
-                    aria-hidden="true"
-                  />
-
-                  <div className="rounded-[1.25rem] border border-white/[0.05] bg-white/[0.015] p-6 backdrop-blur-sm transition-colors duration-200 hover:border-white/[0.09]">
-                    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                      <div>
-                        <h3 className="text-lg font-medium leading-6 text-[var(--color-ivory)]">
-                          {item.role}
-                        </h3>
-
-                        <p className="mt-1 text-[11px] uppercase tracking-[0.18em] text-[var(--color-stone-dim)]">
-                          {item.organization}
-                        </p>
-
-                        <p className="mt-2 text-sm text-[var(--color-stone)]">
-                          {item.location}
-                        </p>
-                      </div>
-
-                      <p className="shrink-0 text-[10px] uppercase tracking-[0.2em] text-[var(--color-stone-dim)]">
-                        {item.period}
-                      </p>
-                    </div>
-
-                    <ul className="mt-5 space-y-3">
-                      {item.summary.map((point) => (
-                        <li
-                          key={point}
-                          className="flex gap-3 text-sm leading-7 text-[var(--color-stone)]"
-                        >
-                          <span
-                            className="mt-[0.72rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
-                            aria-hidden="true"
-                          />
-
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
+          </h1>
         </div>
 
-        {/* =====================================================
-            PROJECTS
-        ====================================================== */}
-        <div id="projects" className="scroll-mt-28">
-          <div className="mb-8 flex items-end justify-between gap-8">
-            <div>
-              <p className="text-[9px] uppercase tracking-[0.3em] text-[var(--color-stone-dim)]">
-                Selected work
-              </p>
+        <p className="max-w-[28rem] text-sm leading-7 text-[var(--color-stone)] lg:text-right">
+          Experience across software, education, community programs and
+          leadership.
+        </p>
+      </div>
 
-              <h2 className="display-type mt-3 text-[clamp(2.8rem,4.5vw,5rem)] leading-[0.97] tracking-[-0.04em] text-[var(--color-ivory)]">
-                Projects that
-                <br />
-                solve real problems.
-              </h2>
-            </div>
+      {/* TIMELINE */}
+      <div ref={timelineRef} className="relative">
+        {/* MAIN LINE */}
+        <div
+          className="absolute bottom-2 left-[6px] top-2 w-px -translate-x-1/2 bg-[var(--color-carbon)]"
+          aria-hidden="true"
+        />
 
-            <p className="hidden max-w-[15rem] text-right text-xs leading-6 text-[var(--color-stone)] md:block">
-              A selection of full-stack, AI and systems-focused work.
-            </p>
-          </div>
+        {/* ACTIVE DOT */}
+        <div
+          className="pointer-events-none absolute left-0 z-20 h-3 w-3 rounded-full border border-[var(--color-ivory)] bg-[var(--color-obsidian)] transition-transform duration-300 ease-out"
+          style={{
+            transform: `translateY(${activeDotTop}px)`,
+          }}
+          aria-hidden="true"
+        >
+          <span className="absolute inset-[3px] rounded-full bg-[var(--color-ivory)]" />
+        </div>
 
-          <div>
-            {projects.map((project) => (
-              <ProjectCard
-                key={project.slug}
-                number={project.number}
-                title={project.title}
-                category={project.category}
-                description={project.description}
-                technologies={project.technologies}
-                href={project.href}
+        {/* EXPERIENCE ITEMS */}
+        <div className="space-y-8">
+          {experience.map((item, index) => (
+            <article key={item.id} className="relative pl-10">
+              {/* EMPTY TIMELINE NODE */}
+              <span
+                ref={(el) => {
+                  nodeRefs.current[index] = el;
+                }}
+                className="absolute left-0 top-7 z-10 h-3 w-3 rounded-full border border-[var(--color-carbon)] bg-[var(--color-obsidian)]"
+                aria-hidden="true"
               />
-            ))}
-          </div>
+
+              {/* EXPERIENCE CARD */}
+              <div className="rounded-[1.5rem] border border-white/[0.06] bg-white/[0.012] px-6 py-6 transition-all duration-300 hover:border-white/[0.11] hover:bg-white/[0.018] md:px-8 lg:px-10">
+                <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-start">
+                  <div>
+                    <h2 className="text-lg font-medium leading-7 text-[var(--color-ivory)]">
+                      {item.role}
+                    </h2>
+
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-[var(--color-stone-dim)]">
+                      {item.organization}
+                    </p>
+
+                    <p className="mt-3 text-sm text-[var(--color-stone)]">
+                      {item.location}
+                    </p>
+                  </div>
+
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-stone-dim)] lg:text-right">
+                    {item.period}
+                  </p>
+                </div>
+
+                <ul className="mt-6 grid gap-x-10 gap-y-3 lg:grid-cols-2">
+                  {item.summary.map((point) => (
+                    <li
+                      key={point}
+                      className="flex gap-3 text-sm leading-7 text-[var(--color-stone)]"
+                    >
+                      <span
+                        className="mt-[0.72rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]"
+                        aria-hidden="true"
+                      />
+
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
