@@ -23,6 +23,7 @@ export const skills: SkillGroup[] = [
     skills: [
       "Angular",
       "React",
+      "Next.js",
       "Tailwind CSS",
       "HTML",
       "CSS",
@@ -41,26 +42,48 @@ export const skills: SkillGroup[] = [
   },
   {
     number: "04",
-    title: "Databases & AI",
+    title: "Databases",
     skills: [
       "MySQL",
       "MongoDB",
-      "Relational Databases",
-      "Anthropic Claude API",
-      "LLM Integration",
+      "Room",
+      "SQLite",
+      "Relational Database Design",
     ],
   },
   {
     number: "05",
+    title: "AI & Machine Learning",
+    skills: [
+      "Anthropic Claude API",
+      "LLM Integration",
+      "scikit-learn",
+      "Machine Learning",
+    ],
+  },
+  {
+    number: "06",
+    title: "Mobile",
+    skills: [
+      "Android",
+      "Java",
+      "Kotlin",
+      "XML",
+      "Room",
+      "ML Kit",
+    ],
+  },
+  {
+    number: "07",
     title: "Tools & Platforms",
     skills: [
       "Git",
       "GitHub",
+      "GitHub Actions",
       "Linux",
       "VS Code",
       "Figma",
       "Render",
-      "GitHub Projects",
     ],
   },
 ];

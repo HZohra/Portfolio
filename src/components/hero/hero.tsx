@@ -37,7 +37,7 @@ export default function Hero() {
               Hello, I&apos;m
             </p>
 
-            <p className="mt-7 text-[8px] uppercase leading-5 tracking-[0.3em] text-[var(--color-stone)] sm:text-[9px]">
+            <p className="mt-7 text-[9px] uppercase leading-5 tracking-[0.28em] text-[var(--color-stone)] sm:text-[10px]">
               Computer Science Student
               <br />
               Software Developer
@@ -48,9 +48,7 @@ export default function Hero() {
               className="display-type mt-3 uppercase leading-[0.8] tracking-[-0.055em] text-[var(--color-ivory)]"
               aria-hidden="true"
             >
-              <p className="text-[clamp(4.2rem,14vw,7rem)]">
-                Zohra
-              </p>
+              <p className="text-[clamp(4.2rem,14vw,7rem)]">Zohra</p>
 
               <p className="mt-2 text-[clamp(4.2rem,14vw,7rem)]">
                 Haidary
@@ -69,19 +67,19 @@ export default function Hero() {
               className="object-cover object-[center_28%] brightness-[0.74] saturate-[0.76]"
             />
 
-            {/* top fade */}
+            {/* TOP FADE */}
             <div
               className="pointer-events-none absolute inset-x-0 top-0 h-[30%] bg-gradient-to-b from-[#0b0b0b] via-[#0b0b0b]/85 to-transparent"
               aria-hidden="true"
             />
 
-            {/* bottom fade */}
+            {/* BOTTOM FADE */}
             <div
               className="pointer-events-none absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-[#0b0b0b] via-[#0b0b0b]/90 to-transparent"
               aria-hidden="true"
             />
 
-            {/* side vignette */}
+            {/* SIDE VIGNETTE */}
             <div
               className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_28%,rgba(11,11,11,0.12)_55%,#0b0b0b_100%)]"
               aria-hidden="true"
@@ -89,11 +87,16 @@ export default function Hero() {
           </div>
 
           {/* MOBILE CONTENT */}
-          <div className="relative z-30 mt-auto max-w-[24rem] pb-12 sm:max-w-[28rem]">
+          <div className="relative z-30 mt-auto max-w-[27rem] pb-12 sm:max-w-[31rem]">
             <p className="display-type text-[clamp(2rem,6vw,2.8rem)] leading-[1.02] tracking-[-0.03em] text-[var(--color-ivory)]">
-              Building thoughtful digital
+              Building practical software
               <br />
-              products with purpose.
+              with purpose.
+            </p>
+
+            <p className="mt-5 max-w-[26rem] text-sm leading-6 text-[var(--color-stone)]">
+              Full-stack, mobile and AI-powered applications built to solve
+              real problems.
             </p>
 
             {/* LOCATION */}
@@ -111,10 +114,10 @@ export default function Hero() {
             {/* ACTIONS */}
             <div className="mt-8 flex flex-wrap items-center gap-6">
               <Link
-                href="#projects"
+                href="/projects"
                 className="group inline-flex items-center gap-3 border border-[var(--color-carbon)] px-5 py-3 text-[10px] uppercase tracking-[0.22em] text-[var(--color-ivory)] transition-colors duration-300 hover:border-[var(--color-stone)]"
               >
-                Explore projects
+                View projects
 
                 <span
                   className="transition-transform duration-300 group-hover:translate-x-1"
@@ -127,7 +130,7 @@ export default function Hero() {
               <a
                 href="/resume.pdf"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[var(--color-stone)] transition-colors duration-200 hover:text-[var(--color-ivory)]"
               >
                 Resume
@@ -151,12 +154,6 @@ export default function Hero() {
 
           {/* =================================================
               DESKTOP NAME
-
-              Portrait = z-20
-              Name = z-10
-
-              42vw middle column keeps HAIDARY clear
-              of the portrait.
           ================================================== */}
           <div
             className="pointer-events-none absolute inset-x-0 top-[21%] z-10 grid grid-cols-[1fr_44vw_1fr] items-start"
@@ -219,11 +216,16 @@ export default function Hero() {
           </div>
 
           {/* MAIN STATEMENT */}
-          <div className="absolute left-0 top-[50%] z-30 max-w-[30rem]">
+          <div className="absolute left-0 top-[50%] z-30 max-w-[33rem]">
             <p className="display-type text-[clamp(2rem,2.6vw,3rem)] leading-[1.02] tracking-[-0.03em] text-[var(--color-ivory)]">
-              Building thoughtful digital
+              Building practical software
               <br />
-              products with purpose.
+              with purpose.
+            </p>
+
+            <p className="mt-5 max-w-[29rem] text-sm leading-6 text-[var(--color-stone)]">
+              Full-stack, mobile and AI-powered applications built to solve
+              real problems.
             </p>
 
             {/* LOCATION */}
@@ -241,10 +243,10 @@ export default function Hero() {
             {/* ACTIONS */}
             <div className="mt-10 flex items-center gap-8">
               <Link
-                href="#projects"
+                href="/projects"
                 className="group inline-flex items-center gap-4 border border-[var(--color-carbon)] px-6 py-4 text-[10px] uppercase tracking-[0.24em] text-[var(--color-ivory)] transition-colors duration-300 hover:border-[var(--color-stone)]"
               >
-                Explore projects
+                View projects
 
                 <span
                   className="transition-transform duration-300 group-hover:translate-x-1"
@@ -257,7 +259,7 @@ export default function Hero() {
               <a
                 href="/resume.pdf"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] text-[var(--color-ivory)] transition-opacity duration-200 hover:opacity-60"
               >
                 Resume
@@ -269,7 +271,7 @@ export default function Hero() {
           {/* SCROLL INDICATOR */}
           <div className="absolute bottom-7 left-1/2 z-30 -translate-x-1/2">
             <div className="flex flex-col items-center gap-3">
-              <p className="text-[8px] uppercase tracking-[0.34em] text-[var(--color-stone-dim)]">
+              <p className="text-[9px] uppercase tracking-[0.32em] text-[var(--color-stone-dim)]">
                 Scroll to explore
               </p>
 
