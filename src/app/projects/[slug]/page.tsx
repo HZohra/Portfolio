@@ -30,7 +30,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         <section><p className="text-xs uppercase tracking-widest text-[var(--color-stone)]">02 / Approach</p><h2 className="display-type mt-4 text-4xl">How it works</h2><p className="mt-5 max-w-xl text-base leading-8 text-[var(--color-stone)]">{project.approach}</p></section>
       </div>
       <section className="mt-16 border-t border-white/15 pt-10"><h2 className="display-type text-4xl">Technology stack</h2><div className="mt-7 flex flex-wrap gap-3">{project.technologies.map(t=><span key={t} className="rounded-full border border-white/20 px-4 py-2 text-sm text-[var(--color-stone)]">{t}</span>)}</div></section>
-      <div className="mt-20 border-t border-white/15 pt-8"><Link href="/contact" className="text-sm underline underline-offset-8">Let's discuss a project ↗</Link></div>
+      <div className="mt-20 border-t border-white/15 pt-8"><Link href="/contact" className="text-sm underline underline-offset-8">Let&apos;s discuss a project ↗</Link></div>
     </article><Footer/>
   </main>;
 }
