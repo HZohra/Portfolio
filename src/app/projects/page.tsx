@@ -5,7 +5,7 @@ import Footer from "@/components/layout/footer";
 export default function ProjectsPage() {
   return (
     <main>
-      <section className="section-shell pt-32">
+      <section className="section-shell !pt-32">
         {/* PAGE LABEL */}
         <div className="mb-16 flex items-center gap-4">
           <span className="text-[10px] tracking-[0.3em] text-[var(--color-stone-dim)]">

@@ -23,7 +23,7 @@ export default function ProjectCard({
         {/* TOP ROW */}
         <div className="flex items-start justify-between gap-6">
           <div>
-            <p className="text-[9px] uppercase tracking-[0.28em] text-[var(--color-stone-dim)]">
+            <p className="text-[11px] uppercase tracking-[0.28em] text-[var(--color-stone-dim)]">
               {category}
             </p>
 
@@ -47,7 +47,7 @@ export default function ProjectCard({
           {technologies.map((technology) => (
             <span
               key={technology}
-              className="rounded-full border border-white/[0.07] px-3 py-1.5 text-[8px] uppercase tracking-[0.18em] text-[var(--color-stone)]"
+              className="rounded-full border border-white/[0.07] px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-[var(--color-stone)]"
             >
               {technology}
             </span>
@@ -56,7 +56,7 @@ export default function ProjectCard({
 
         {/* BOTTOM */}
         <div className="mt-8 flex items-center justify-between">
-          <p className="text-[9px] uppercase tracking-[0.22em] text-[var(--color-stone-dim)]">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-[var(--color-stone-dim)]">
             Case Study
           </p>
 

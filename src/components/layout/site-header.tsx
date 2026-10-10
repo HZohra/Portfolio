@@ -1,4 +1,7 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const navigation = [
   { label: "About", href: "/#about" },
@@ -8,97 +11,34 @@ const navigation = [
 ];
 
 export default function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") setOpen(false); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      {/* subtle readable background */}
-      <div className="absolute inset-0 -z-10 border-b border-white/[0.04] bg-[#0b0b0b]/70 backdrop-blur-xl" />
-
-      <div className="page-shell flex h-20 items-center justify-between">
-        {/* =====================================================
-            LEFT BRAND
-        ====================================================== */}
-        <div className="flex items-center gap-5">
-          <Link
-            href="/"
-            className="display-type text-2xl tracking-[-0.04em] transition-opacity duration-200 hover:opacity-60"
-            aria-label="Zohra Haidary — Home"
-          >
-            ZH
-          </Link>
-
-          <span
-            className="hidden h-4 w-px bg-[var(--color-carbon)] sm:block"
-            aria-hidden="true"
-          />
-
-          <p className="hidden text-[8px] uppercase tracking-[0.38em] text-[var(--color-stone)] lg:block">
-            Build · Learn · Create · Repeat
-          </p>
-        </div>
-
-        {/* =====================================================
-            CENTER NAVIGATION
-        ====================================================== */}
-        <nav
-          className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 xl:flex"
-          aria-label="Main navigation"
-        >
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="group relative text-[11px] text-[var(--color-stone)] transition-colors duration-200 hover:text-[var(--color-ivory)]"
-            >
-              {item.label}
-
-              <span
-                className="absolute -bottom-2 left-0 h-px w-0 bg-[var(--color-ivory)] transition-[width] duration-300 group-hover:w-full"
-                aria-hidden="true"
-              />
-            </Link>
-          ))}
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0b0b0b]/90 backdrop-blur-xl">
+      <div className="page-shell flex h-20 items-center justify-between gap-4">
+        <Link href="/" onClick={() => setOpen(false)} className="display-type text-2xl tracking-tight" aria-label="Zohra Haidary home">ZH</Link>
+        <nav className="hidden items-center gap-8 xl:flex" aria-label="Main navigation">
+          {navigation.map(item => <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined} className="py-3 text-sm text-[var(--color-stone)] transition hover:text-[var(--color-ivory)]">{item.label}</Link>)}
         </nav>
-
-        {/* =====================================================
-            RIGHT ACTIONS
-        ====================================================== */}
-        <div className="flex items-center gap-4 sm:gap-6">
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="hidden text-[9px] uppercase tracking-[0.24em] text-[var(--color-stone)] transition-colors duration-200 hover:text-[var(--color-ivory)] lg:block"
-          >
-            Resume ↗
-          </a>
-
-          <Link
-            href="/contact"
-            className="group flex items-center gap-3 border border-[var(--color-carbon)] px-4 py-3 text-[10px] tracking-[0.05em] text-[var(--color-ivory)] transition-colors duration-300 hover:border-[var(--color-stone)] sm:gap-4 sm:px-5"
-          >
-            Let&apos;s Connect
-
-            <span
-              className="transition-transform duration-300 group-hover:translate-x-1"
-              aria-hidden="true"
-            >
-              →
-            </span>
-          </Link>
-
-          {/* MOBILE MENU BUTTON */}
-          <button
-            type="button"
-            className="flex h-10 w-10 items-center justify-center border border-[var(--color-carbon)] xl:hidden"
-            aria-label="Open navigation menu"
-          >
-            <span className="flex flex-col gap-1.5">
-              <span className="h-px w-4 bg-[var(--color-ivory)]" />
-              <span className="h-px w-4 bg-[var(--color-ivory)]" />
-            </span>
+        <div className="flex items-center gap-3">
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="hidden px-3 py-3 text-xs uppercase tracking-widest text-[var(--color-stone)] hover:text-white sm:block">Resume ↗</a>
+          <Link href="/contact" onClick={() => setOpen(false)} className="border border-white/20 px-4 py-3 text-xs uppercase tracking-wider transition hover:border-white/60">Let's Connect →</Link>
+          <button type="button" className="flex h-11 w-11 items-center justify-center border border-white/20 xl:hidden" aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(v => !v)}>
+            <span className="flex flex-col gap-1.5" aria-hidden="true"><span className="h-px w-5 bg-white"/><span className="h-px w-5 bg-white"/></span>
           </button>
         </div>
       </div>
+      {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="border-t border-white/10 bg-[#0b0b0b] px-5 pb-7 pt-3 xl:hidden">
+        <div className="mx-auto flex max-w-[1500px] flex-col">{navigation.map(item => <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="border-b border-white/10 py-4 text-lg">{item.label} <span aria-hidden="true">↗</span></Link>)}</div>
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="mt-5 inline-block py-3 text-sm">View resume ↗</a>
+      </nav>}
     </header>
   );
 }

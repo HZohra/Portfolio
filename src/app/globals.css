@@ -236,3 +236,7 @@ section[id] {
     transform: none !important;
   }
 }
+/* More legible secondary text and efficient vertical rhythm. */
+.section-shell { padding-block: clamp(4rem, 7vw, 7rem); }
+:root { --color-stone-dim: #aaa49b; --color-stone: #b9b3aa; }
+@media (max-width: 640px) { .section-shell { padding-block: 4rem; } }

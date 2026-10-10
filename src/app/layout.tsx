@@ -15,9 +15,11 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Zohra Haidary — Software Developer",
+  title: { default: "Zohra Haidary — Software Developer", template: "%s" },
   description:
     "Portfolio of Zohra Haidary, a Computer Science student and software developer based in Waterloo, Canada.",
+  openGraph: { type: "website", title: "Zohra Haidary — Software Developer", description: "Full-stack, mobile and AI-powered software projects by Zohra Haidary." },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

@@ -45,7 +45,7 @@ export default function AboutSection() {
             </p>
 
             <p>
-              I enjoy working across software engineering, product design and
+              I work across software engineering, product design and
               emerging technologies to turn ideas into useful applications. My
               projects have given me hands-on experience with frontend
               development, backend APIs, databases, authentication, AI
@@ -61,7 +61,7 @@ export default function AboutSection() {
         </div>
 
         {/* RIGHT — EDUCATION + TECHNICAL FOCUS */}
-        <div className="lg:pt-24">
+        <div className="lg:pt-12">
           <div className="border-t border-[var(--color-carbon)]">
             {/* EDUCATION */}
             <div className="grid gap-6 border-b border-[var(--color-carbon)] py-8 sm:grid-cols-[1fr_auto]">

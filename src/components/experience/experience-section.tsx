@@ -76,7 +76,7 @@ export default function ExperienceSection() {
       {/* =====================================================
           PAGE INTRO
       ====================================================== */}
-      <div className="mb-28 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+      <div className="mb-16 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <p className="text-[9px] uppercase tracking-[0.3em] text-[var(--color-stone-dim)]">
             Skills · Work · Leadership
@@ -103,7 +103,7 @@ export default function ExperienceSection() {
       {/* =====================================================
           TECHNICAL SKILLS
       ====================================================== */}
-      <div className="mb-28">
+      <div className="mb-16">
         <div className="mb-10 flex flex-col gap-6 border-b border-[var(--color-carbon)] pb-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-[9px] uppercase tracking-[0.3em] text-[var(--color-stone-dim)]">
@@ -158,7 +158,7 @@ export default function ExperienceSection() {
       {/* =====================================================
           CURRENTLY LEARNING
       ====================================================== */}
-      <div className="mb-28">
+      <div className="mb-16">
         <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-[9px] uppercase tracking-[0.3em] text-[var(--color-stone-dim)]">
@@ -207,7 +207,7 @@ export default function ExperienceSection() {
       {/* =====================================================
           PROFESSIONAL EXPERIENCE
       ====================================================== */}
-      <div className="mb-28">
+      <div className="mb-16">
         <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-[9px] uppercase tracking-[0.3em] text-[var(--color-stone-dim)]">
@@ -282,7 +282,7 @@ export default function ExperienceSection() {
       {/* =====================================================
           LEADERSHIP + COMMUNITY
       ====================================================== */}
-      <div className="mb-28">
+      <div className="mb-16">
         <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-[9px] uppercase tracking-[0.3em] text-[var(--color-stone-dim)]">

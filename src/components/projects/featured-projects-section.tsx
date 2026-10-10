@@ -51,11 +51,11 @@ export default function FeaturedProjectsSection() {
       </div>
 
       {/* PROJECT CARDS */}
-      <div className="grid gap-4 lg:grid-cols-3">
+      <div className="grid gap-5 lg:grid-cols-3">
         {featuredProjects.map((project) => (
           <article
             key={project.slug}
-            className="group flex min-h-[26rem] flex-col rounded-[1.5rem] border border-white/[0.06] bg-white/[0.012] p-6 transition-colors duration-300 hover:border-white/[0.12] hover:bg-white/[0.018] md:p-8"
+            className="group flex min-h-[24rem] flex-col rounded-[1.5rem] border border-white/[0.06] bg-white/[0.012] p-6 transition-colors duration-300 hover:border-white/[0.12] hover:bg-white/[0.018] md:p-8"
           >
             {/* CATEGORY + NUMBER */}
             <div className="flex items-start justify-between gap-5">
@@ -83,7 +83,7 @@ export default function FeaturedProjectsSection() {
               {project.technologies.slice(0, 4).map((technology) => (
                 <span
                   key={technology}
-                  className="rounded-full border border-white/[0.07] px-3 py-1.5 text-[9px] uppercase tracking-[0.14em] text-[var(--color-stone)]"
+                  className="rounded-full border border-white/[0.07] px-3 py-1.5 text-[11px] uppercase tracking-[0.08em] text-[var(--color-stone)]"
                 >
                   {technology}
                 </span>
@@ -93,8 +93,8 @@ export default function FeaturedProjectsSection() {
             {/* BOTTOM ACTION */}
             <div className="mt-auto pt-8">
               <Link
-                href="/projects"
-                className="inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.22em] text-[var(--color-ivory)] transition-opacity duration-200 hover:opacity-60"
+                href={project.href}
+                className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.12em] text-[var(--color-ivory)] transition-opacity duration-200 hover:opacity-60"
               >
                 View project
                 <span
