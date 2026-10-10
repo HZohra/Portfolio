@@ -11,7 +11,7 @@ function CourseworkCard({
     <article className="flex h-[19rem] w-[19rem] shrink-0 flex-col items-center justify-center rounded-[2rem] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.025),rgba(255,255,255,0.01))] px-8 text-center transition-colors duration-300 hover:border-white/[0.15] hover:bg-white/[0.025] sm:h-[20rem] sm:w-[21rem]">
       {/* COURSE LABEL */}
       <div className="mb-8 flex h-11 items-center justify-center rounded-full border border-white/[0.08] px-6">
-        <span className="text-[8px] uppercase tracking-[0.3em] text-[var(--color-accent)]">
+        <span className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-accent)]">
           Course
         </span>
       </div>

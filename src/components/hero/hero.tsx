@@ -33,11 +33,11 @@ export default function Hero() {
         <div className="relative flex min-h-[100svh] flex-col pt-28 xl:hidden">
           {/* INTRO */}
           <div className="relative z-30">
-            <p className="text-[9px] uppercase tracking-[0.4em] text-[var(--color-stone)] sm:text-[10px]">
+            <p className="text-[11px] uppercase tracking-[0.4em] text-[var(--color-stone)] sm:text-xs">
               Hello, I&apos;m
             </p>
 
-            <p className="mt-7 text-[9px] uppercase leading-5 tracking-[0.28em] text-[var(--color-stone)] sm:text-[10px]">
+            <p className="mt-7 text-[11px] uppercase leading-5 tracking-[0.28em] text-[var(--color-stone)] sm:text-xs">
               Computer Science Student
               <br />
               Software Developer
@@ -64,7 +64,7 @@ export default function Hero() {
               fill
               priority
               sizes="100vw"
-              className="object-cover object-[center_28%] brightness-[0.74] saturate-[0.76]"
+              className="object-cover object-[center_28%] brightness-[0.88] saturate-[0.88]"
             />
 
             {/* TOP FADE */}
@@ -106,7 +106,7 @@ export default function Hero() {
                 aria-hidden="true"
               />
 
-              <p className="text-[10px] uppercase tracking-[0.23em] text-[var(--color-stone)]">
+              <p className="text-xs uppercase tracking-[0.23em] text-[var(--color-stone)]">
                 Waterloo, Canada
               </p>
             </div>
@@ -115,7 +115,7 @@ export default function Hero() {
             <div className="mt-8 flex flex-wrap items-center gap-6">
               <Link
                 href="/projects"
-                className="group inline-flex items-center gap-3 border border-[var(--color-carbon)] px-5 py-3 text-[10px] uppercase tracking-[0.22em] text-[var(--color-ivory)] transition-colors duration-300 hover:border-[var(--color-stone)]"
+                className="group inline-flex items-center gap-3 border border-[var(--color-carbon)] px-5 py-3 text-xs uppercase tracking-[0.22em] text-[var(--color-ivory)] transition-colors duration-300 hover:border-[var(--color-stone)]"
               >
                 View projects
 
@@ -131,7 +131,7 @@ export default function Hero() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[var(--color-stone)] transition-colors duration-200 hover:text-[var(--color-ivory)]"
+                className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-[var(--color-stone)] transition-colors duration-200 hover:text-[var(--color-ivory)]"
               >
                 Resume
                 <span aria-hidden="true">↗</span>
@@ -147,7 +147,7 @@ export default function Hero() {
         <div className="relative hidden min-h-[100svh] xl:block">
           {/* HELLO */}
           <div className="absolute left-0 top-[16%] z-30">
-            <p className="text-[10px] uppercase tracking-[0.42em] text-[var(--color-stone)]">
+            <p className="text-xs uppercase tracking-[0.42em] text-[var(--color-stone)]">
               Hello, I&apos;m
             </p>
           </div>
@@ -180,7 +180,7 @@ export default function Hero() {
               fill
               priority
               sizes="44vw"
-              className="object-cover object-[center_28%] brightness-[0.76] saturate-[0.78]"
+              className="object-cover object-[center_28%] brightness-[0.88] saturate-[0.88]"
             />
 
             {/* SIDE BLEND */}
@@ -210,7 +210,7 @@ export default function Hero() {
 
           {/* ROLE */}
           <div className="absolute left-0 top-[39%] z-30">
-            <p className="text-[10px] uppercase tracking-[0.34em] text-[var(--color-stone)]">
+            <p className="text-xs uppercase tracking-[0.34em] text-[var(--color-stone)]">
               Computer Science Student · Software Developer
             </p>
           </div>
@@ -244,7 +244,7 @@ export default function Hero() {
             <div className="mt-10 flex items-center gap-8">
               <Link
                 href="/projects"
-                className="group inline-flex items-center gap-4 border border-[var(--color-carbon)] px-6 py-4 text-[10px] uppercase tracking-[0.24em] text-[var(--color-ivory)] transition-colors duration-300 hover:border-[var(--color-stone)]"
+                className="group inline-flex items-center gap-4 border border-[var(--color-carbon)] px-6 py-4 text-xs uppercase tracking-[0.24em] text-[var(--color-ivory)] transition-colors duration-300 hover:border-[var(--color-stone)]"
               >
                 View projects
 
@@ -260,7 +260,7 @@ export default function Hero() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] text-[var(--color-ivory)] transition-opacity duration-200 hover:opacity-60"
+                className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-[var(--color-ivory)] transition-opacity duration-200 hover:opacity-60"
               >
                 Resume
                 <span aria-hidden="true">↗</span>
@@ -271,7 +271,7 @@ export default function Hero() {
           {/* SCROLL INDICATOR */}
           <div className="absolute bottom-7 left-1/2 z-30 -translate-x-1/2">
             <div className="flex flex-col items-center gap-3">
-              <p className="text-[9px] uppercase tracking-[0.32em] text-[var(--color-stone-dim)]">
+              <p className="text-[11px] uppercase tracking-[0.32em] text-[var(--color-stone-dim)]">
                 Scroll to explore
               </p>
 
