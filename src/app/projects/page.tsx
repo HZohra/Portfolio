@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { projects } from "@/data/projects";
 import ProjectCard from "@/components/projects/project-card";
 import Footer from "@/components/layout/footer";
@@ -5,7 +6,7 @@ import Footer from "@/components/layout/footer";
 export default function ProjectsPage() {
   return (
     <main>
-      <section className="section-shell pt-32">
+      <section className="section-shell !pt-32">
         {/* PAGE LABEL */}
         <div className="mb-16 flex items-center gap-4">
           <span className="text-[10px] tracking-[0.3em] text-[var(--color-stone-dim)]">
@@ -62,3 +63,4 @@ export default function ProjectsPage() {
     </main>
   );
 }
+export const metadata: Metadata = { title: "Projects | Zohra Haidary", description: "Explore software engineering, AI, Android and networking projects by Zohra Haidary." };

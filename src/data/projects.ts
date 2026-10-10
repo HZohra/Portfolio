@@ -1,92 +1,13 @@
-export const projects = [
-  {
-    slug: "trackr",
-    number: "01",
-    title: "Trackr AI - Academic Management Platform",
-    category: "Full-Stack · AI",
-    description:
-      "AI-powered academic management platform for courses, assignments, grades, GPA tracking, calendar planning and intelligent syllabus extraction.",
-    technologies: [
-      "Angular",
-      "TypeScript",
-      "Node.js",
-      "Express.js",
-      "MySQL",
-      "Claude API",
-    ],
-    href: "/projects/trackr",
-  },
-
-  {
-    slug: "pantrywise",
-    number: "02",
-    title: "PantryWise - Smart Pantry & Meal Planning Android App",
-    category: "Android · AI",
-    description:
-      "Smart pantry and meal-planning application designed to reduce food waste, track household ingredients and support smarter grocery planning.",
-    technologies: [
-      "Android",
-      "Java",
-      "Kotlin",
-      "Room",
-      "ML Kit",
-      "REST APIs",
-    ],
-    href: "/projects/pantrywise",
-  },
-
-  {
-    slug: "bitewise",
-    number: "03",
-    title: "BiteWise - Personalized Meal Recommendation Web App",
-    category: "Full-Stack · Web",
-    description:
-      "Full-stack meal recommendation platform that provides personalized meal suggestions based on dietary restrictions and allergies.",
-    technologies: [
-      "React",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "REST APIs",
-      "JWT",
-    ],
-    href: "/projects/bitewise",
-  },
-
-  {
-    slug: "portfolio-work",
-    number: "04",
-    title: "Portfolio Work",
-    category: "Web Design · Frontend",
-    description:
-      "A collection of portfolio and personal websites I have designed and developed for myself and others.",
-    technologies: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Responsive Design",
-    ],
-    href: "/projects/portfolio-work",
-  },
-
-
-  {
-    slug: "ds-ftp",
-    number: "05",
-    title: "DS-FTP",
-    category: "Java · Networking",
-    description:
-      "Reliable file transfer protocol built over UDP using Stop-and-Wait and Go-Back-N with retransmission, packet sequencing and loss recovery.",
-    technologies: [
-      "Java",
-      "UDP",
-      "Networking",
-      "RDT 3.0",
-      "Go-Back-N",
-    ],
-    href: "/projects/ds-ftp",
-  },
+export type PortfolioProject = {
+  slug: string; number: string; title: string; category: string;
+  description: string; technologies: string[]; href: string;
+  status: "Live" | "In development" | "Completed" | "Portfolio";
+  github?: string; demo?: string; problem: string; approach: string;
+};
+export const projects: PortfolioProject[] = [
+  { slug:"trackr",number:"01",title:"Trackr AI",category:"Full-Stack · AI", description:"Academic management platform for courses, grades, assignments, GPA tracking, calendar planning and AI-assisted syllabus extraction.", technologies:["Angular","TypeScript","Node.js","Express.js","MySQL","Claude API"],href:"/projects/trackr",status:"Live",demo:"https://trackr-ai.onrender.com/",github:"https://github.com/HZohra/Trackr",problem:"Course deadlines, grade calculations and syllabus details are spread across many tools.",approach:"Built a full-stack application that brings academic planning into one place, with authenticated accounts, structured course and assignment data, GPA calculations and AI-assisted syllabus parsing." },
+  { slug:"pantrywise",number:"02",title:"PantryWise",category:"Android · AI",description:"Android smart-pantry and meal-planning project aimed at reducing food waste and simplifying grocery decisions.",technologies:["Android","Java","Kotlin","Room","ML Kit","REST APIs"],href:"/projects/pantrywise",status:"In development",problem:"Households lose track of available ingredients, leading to unnecessary purchases and food waste.",approach:"The planned Android experience combines inventory tracking, expiry reminders and meal planning. Features and integrations are under development, not yet presented as completed." },
+  { slug:"bitewise",number:"03",title:"BiteWise",category:"Full-Stack · Web",description:"Meal recommendation web application based on dietary restrictions and allergies.",technologies:["React","Node.js","Express.js","MongoDB","REST APIs","JWT"],href:"/projects/bitewise",status:"Portfolio",problem:"Finding meal suggestions that fit individual dietary needs can be time-consuming.",approach:"Designed a full-stack recommendation experience with user preferences, backend APIs and a database-backed application structure." },
+  { slug:"portfolio-work",number:"04",title:"Portfolio Work",category:"Web Design · Frontend",description:"Personal and portfolio websites designed and developed with modern frontend technologies.",technologies:["Next.js","React","TypeScript","Tailwind CSS","Responsive Design"],href:"/projects/portfolio-work",status:"Portfolio",github:"https://github.com/HZohra/Portfolio",problem:"Personal websites need to express an identity while remaining fast, accessible and usable.",approach:"Use responsive layouts, component-driven design, consistent typography and clear navigation to communicate each site's content." },
+  { slug:"ds-ftp",number:"05",title:"DS-FTP",category:"Java · Networking",description:"UDP file-transfer implementation using Stop-and-Wait and Go-Back-N with retransmission and packet sequencing.",technologies:["Java","UDP","Networking","RDT 3.0","Go-Back-N"],href:"/projects/ds-ftp",status:"Completed",problem:"Unreliable networks can lose or reorder data packets.",approach:"Implemented reliability techniques over UDP using sequence information, acknowledgements and retransmission strategies." }
 ];
-  
-  

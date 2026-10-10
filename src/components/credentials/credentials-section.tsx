@@ -1,5 +1,4 @@
 import { certificates } from "@/data/certificates";
-import CourseworkMarquee from "@/components/credentials/coursework-marquee";
 
 export default function CredentialsSection() {
   return (
