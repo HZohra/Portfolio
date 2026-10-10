@@ -13,7 +13,6 @@ const navigation = [
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  useEffect(() => { setOpen(false); }, [pathname]);
   useEffect(() => {
     if (!open) return;
     const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") setOpen(false); };
@@ -29,7 +28,7 @@ export default function SiteHeader() {
         </nav>
         <div className="flex items-center gap-3">
           <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="hidden px-3 py-3 text-xs uppercase tracking-widest text-[var(--color-stone)] hover:text-white sm:block">Resume ↗</a>
-          <Link href="/contact" onClick={() => setOpen(false)} className="border border-white/20 px-4 py-3 text-xs uppercase tracking-wider transition hover:border-white/60">Let's Connect →</Link>
+          <Link href="/contact" onClick={() => setOpen(false)} className="border border-white/20 px-4 py-3 text-xs uppercase tracking-wider transition hover:border-white/60">Let&apos;s Connect →</Link>
           <button type="button" className="flex h-11 w-11 items-center justify-center border border-white/20 xl:hidden" aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(v => !v)}>
             <span className="flex flex-col gap-1.5" aria-hidden="true"><span className="h-px w-5 bg-white"/><span className="h-px w-5 bg-white"/></span>
           </button>
